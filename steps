@@ -1,0 +1,33 @@
+1 刷ROM为l路由器对应的开发版本
+网址为www1.miwifi.com/miwifi_download.html
+先下载对应的开发版本以小米路由器3为例对应文件为miwifi_r3_firmware_e87c6_2.13.75.bin
+在浏览器里面访问路由器的配置页面，找到常用设置->系统状态->手动升级，选择刚刚下载到的路由器固件，开始刷机。
+
+2刷机完成后，进行开启SSH服务
+对应网址为www.miwifi.com/miwifi_open.html
+找到 开启SSH工具 选项
+进入并按照要求刷入SSH的工具包
+具体方法为
+1.请将下载的工具包bin文件复制到U盘（FAT/FAT32格式）的根目录下，保证文件名为miwifi_ssh.bin；
+2.断开小米路由器的电源，将U盘插入USB接口；
+3.按住reset按钮之后重新接入电源，指示灯变为黄色闪烁状态即可松开reset键；
+4.等待3-5秒后安装完成之后，小米路由器会自动重启，之后您就可以尽情折腾啦.
+
+如果你是ubuntu用户，那么只要有自身电脑开启SSH服务即可 
+sudo apt-get install openssh-client
+sudo /etc/init.d/networking restart
+然后远程登录路由器
+ssh root@miwifi.com
+密码在下载ssh工具包的页面里面有
+
+3安装并设置Shadowsocks
+cd /tmp
+mkdir shadowsocks
+cd shadowscoks
+wget http://7xo6sw.com1.z0.glb.clouddn.com/miwifi.sh
+chmod +x miwifi.sh
+sh ./miwifi.sh
+5
+之后按照步骤配置好你的shadowsocks的服务器ip，服务器端口，密码，加密方式即可
+安装成功以后即可畅想翻墙
+对应的shadowssocks安装卸载sh文件在miwifi-ss-master.zip可见
